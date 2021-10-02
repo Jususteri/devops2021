@@ -1,0 +1,5 @@
+PS C:\Users\jerel> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+74eb7ba40536   nginx     "/docker-entrypoint.…"   23 minutes ago   Exited (0) 23 minutes ago             keen_beaver
+a2d6299a176d   nginx     "/docker-entrypoint.…"   23 minutes ago   Exited (0) 20 minutes ago             vibrant_hamilton
+a8aa27644b97   nginx     "/docker-entrypoint.…"   23 minutes ago   Up 23 minutes               80/tcp    hopeful_khayyam
