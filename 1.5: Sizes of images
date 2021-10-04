@@ -1,0 +1,20 @@
+jere@jere-VirtualBox:~$ sudo docker images
+REPOSITORY                          TAG       IMAGE ID       CREATED        SIZE
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   6 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   6 months ago   15.7MB
+jere@jere-VirtualBox:~$ sudo docker run -d -it --name alpinetest devopsdockeruh/simple-web-service:alpine
+[sudo] password for jere: 
+57f432753df4a4540480aa53dcef2968e0c07943f6640c4c363ab441b9fda963
+jere@jere-VirtualBox:~$ sudo docker exec -it alpinetest tail -f ./text.log
+2021-10-04 04:06:36 +0000 UTC
+2021-10-04 04:06:38 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2021-10-04 04:06:40 +0000 UTC
+2021-10-04 04:06:42 +0000 UTC
+2021-10-04 04:06:44 +0000 UTC
+2021-10-04 04:06:46 +0000 UTC
+2021-10-04 04:06:48 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2021-10-04 04:06:50 +0000 UTC
+read escape sequence
+jere@jere-VirtualBox:~$ 
