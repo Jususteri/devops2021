@@ -1,0 +1,30 @@
+jere@jere-VirtualBox:~$ nano Dockerfile
+
+__________________________________________
+
+FROM devopsdockeruh/simple-web-service:alpine
+
+CMD server
+
+__________________________________________
+
+
+jere@jere-VirtualBox:~$ docker build . -t web-server
+Sending build context to Docker daemon  195.8MB
+Step 1/2 : FROM devopsdockeruh/simple-web-service:alpine
+ ---> fd312adc88e0
+Step 2/2 : CMD server
+ ---> Running in acf09d7e80f4
+Removing intermediate container acf09d7e80f4
+ ---> b911468a3380
+Successfully built b911468a3380
+Successfully tagged web-server:latest
+jere@jere-VirtualBox:~$ docker run web-server
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /*path                    --> server.Start.func1 (3 handlers)
+[GIN-debug] Listening and serving HTTP on :8080
