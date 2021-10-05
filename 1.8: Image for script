@@ -1,0 +1,42 @@
+jere@jere-VirtualBox:~$ nano script.sh
+________________________________________________________
+ GNU nano 4.8                       script.sh     
+echo "Input website:"; read website; 
+echo "Searching.."; sleep 1; curl http://$website;
+________________________________________________________
+
+
+jere@jere-VirtualBox:~$ nano Dockerfile
+_______________________________________________________
+ GNU nano 4.8                       Dockerfile                                 
+FROM ubuntu:18.04
+WORKDIR /usr/src/app
+COPY script.sh .
+RUN chmod +x script.sh
+RUN apt-get update
+RUN apt-get install -y curl
+CMD ./script.sh 
+________________________________________________________
+
+jere@jere-VirtualBox:~$ docker build . -t curler
+Sending build context to Docker daemon    198MB
+Step 1/7 : FROM ubuntu:18.04
+ ---> 5a214d77f5d7
+Step 2/7 : WORKDIR /usr/src/app
+ ---> Running in a6c941f41d6b
+..
+...
+Successfully built 2ffb19c4f9d5
+Successfully tagged curler:latest
+jere@jere-VirtualBox:~$ docker run -it curler
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="https://www.helsinki.fi/">here</a>.</p>
+</body></html>
+
