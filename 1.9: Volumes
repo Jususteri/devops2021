@@ -1,0 +1,22 @@
+jere@jere-VirtualBox:~$ nano text.log
+jere@jere-VirtualBox:~$ touch text.log
+jere@jere-VirtualBox:~$ docker run -v "$(pwd)/text.log:/usr/src/app/text.log" devopsdockeruh/simple-web-service
+Starting log output
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+Wrote text to /usr/src/app/text.log
+jere@jere-VirtualBox:~$
+jere@jere-VirtualBox:~$ cat text.log
+2021-10-06 04:10:17 +0000 UTC
+2021-10-06 04:10:19 +0000 UTC
+2021-10-06 04:10:21 +0000 UTC
+2021-10-06 04:10:23 +0000 UTC
+2021-10-06 04:10:25 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2021-10-06 04:10:27 +0000 UTC
+2021-10-06 04:10:29 +0000 UTC
