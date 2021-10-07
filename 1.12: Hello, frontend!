@@ -1,0 +1,23 @@
+jere@jere-VirtualBox:~/material-applications/example-frontend$ nano Dockerfile
+_____________________________________________________________________
+  GNU nano 4.8                                          Dockerfile                                                    
+FROM node:14
+WORKDIR /usr/src/app
+COPY . .
+RUN npm install
+RUN npm run build
+RUN npm install -g serve
+
+CMD ["serve", "-s", "-l", "5000", "build"]
+______________________________________________________________________
+
+jere@jere-VirtualBox:~/material-applications/example-frontend$ docker build . -t example-frontend && docker run -p 5000:5000 example-frontend
+Sending build context to Docker daemon  729.1kB
+Step 1/7 : FROM node:14
+ ---> 8cf18d365a37
+Step 2/7 : WORKDIR /usr/src/app
+..
+...
+Successfully built f49d94883863
+Successfully tagged example-frontend:latest
+INFO: Accepting connections at http://localhost:5000
