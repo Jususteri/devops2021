@@ -1,0 +1,28 @@
+jere@jere-VirtualBox:~/material-applications/example-backend$ nano Dockerfile
+___________________________________________________________
+ GNU nano 4.8                       Dockerfile                                 
+FROM golang:1.16
+WORKDIR /usr/src/app
+COPY . .
+RUN go build
+ENTRYPOINT ./server
+ENV REQUEST_ORIGIN=http://localhost:5000
+ENV PORT=8080
+____________________________________________________________
+
+jere@jere-VirtualBox:~/material-applications/example-backend$ docker build . -t example-backend && docker run -p 8080:8080 example-backend
+Sending build context to Docker daemon   42.5kB
+Step 1/7 : FROM golang:1.16
+1.16: Pulling from library/golang
+..
+...
+Successfully built f79e5a62490d
+Successfully tagged example-backend:latest
+..
+...
+[GIN-debug] GET    /ping                     --> server/router.pingpong (4 handlers)
+[GIN-debug] GET    /messages                 --> server/controller.GetMessages (4 handlers)
+[GIN-debug] POST   /messages                 --> server/controller.CreateMessage (4 handlers)
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN] 2021/10/07 - 05:41:17 | 404 |      38.342µs |      172.17.0.1 | GET      "/"
+[GIN] 2021/10/07 - 05:41:26 | 200 |       8.396µs |      172.17.0.1 | GET      "/ping"
